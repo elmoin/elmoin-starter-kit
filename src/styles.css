@@ -1,0 +1,21 @@
+
+.logo {
+  width: 30%;
+	height: 30%;
+}
+
+.content {
+  text-align: center;
+}
+
+.btn-more {
+	background-color: #7fd13b;
+}
+
+.btn-more:hover {
+	background-color: #60b5cc;
+}
+
+.btn-more:active {
+	background-color: #5a6378;
+}
