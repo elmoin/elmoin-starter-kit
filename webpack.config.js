@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require( 'autoprefixer' );
 
-
 const PATHS = {
 	src: './src/'
 }
@@ -26,9 +25,9 @@ module.exports = {
 	},
 	module: {
 		loaders: [{
-      test: /\.(eot|ttf|woff|woff2|svg)$/,
-      loader: 'file-loader'
-    },
+			test: /\.(eot|ttf|woff|woff2|svg)$/,
+			loader: 'file-loader'
+		},
 		{
 			test: /\.elm$/,
 			exclude: [/elm-stuff/, /node_modules/],
@@ -39,7 +38,6 @@ module.exports = {
 			loader: 'style-loader!css-loader'
 		}
 	]},
-
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: `${PATHS.src}/index.html`,
