@@ -19,6 +19,8 @@ cd {your-project}
 npm i
 elm package install -y
 npm run
+npm start
+visit localhost:3333 to see the site
 ````
 
 If you want to remove all git history just run `rm -rf .git` from your `{your-project}`
