@@ -1,3 +1,6 @@
+$elm-color1: #7fd13b;
+$elm-color2: #60b5cc;
+$elm-color3: #5a6378;
 
 .logo {
 	height: 30%;
@@ -9,13 +12,13 @@
 
 .btn-more {
   color: #FFF;
-	background-color: #7fd13b;
+	background-color: $elm-color1;
 }
 
 .btn-more:hover {
-	background-color: #60b5cc;
+	background-color: $elm-color2;
 }
 
 .btn-more:active {
-	background-color: #5a6378;
+	background-color: $elm-color3;
 }

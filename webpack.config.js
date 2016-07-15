@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require( 'autoprefixer' );
+const precss = require( 'precss' );
 
 const PATHS = {
 	src: './src/'
@@ -35,7 +36,7 @@ module.exports = {
 		},
 		{
 			test: /\.(css)$/,
-			loader: 'style-loader!css-loader'
+			loader: 'style-loader!css-loader!postcss-loader'
 		}
 	]},
 	plugins: [
@@ -46,13 +47,9 @@ module.exports = {
 			favicon: `${PATHS.src}/favicon.ico`
 		})
 	],
-  postcss: [
-		autoprefixer({
-			browsers: [
-				'last 2 versions'
-			]
-		})
-	],
+	postcss: function () {
+		return [precss, autoprefixer({ browsers: 'last 2 versions' })];
+	},
 	devServer: {
 		inline: true,
 		progress: true,
