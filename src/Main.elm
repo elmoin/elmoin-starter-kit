@@ -59,16 +59,16 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "row content" ]
+    div [ class "mdl-grid" ]
         [ div
-            [ class "col s10 offset-s1" ]
+            [ class "mdl-cell mdl-cell--8-col mdl-cell--2-offset content" ]
             [ h1 [] [ text "Elmoin Starter Kit" ]
             , img [ class "logo", src "./elmoin-logo.png" ] []
-            , footer [ class "footer" ]
-                [ h3 [ class "" ] [ text <| toString model.count ++ "x Moin Moin Elmoin!" ]
+            , footer []
+                [ h3 [] [ text <| toString model.count ++ "x Moin Moin Elmoin!" ]
                 , a
-                    [ class "waves-effect waves-light btn-large btn-more", onClick Count ]
-                    [ text <| "Mooooooooooore Moin!" ]
+                    [ class "mdl-button mdl-js-button mdl-button--raised btn-more", onClick Count ]
+                    [ text "Mooooooooooore Moin!" ]
                 ]
             ]
         ]

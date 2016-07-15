@@ -9,7 +9,7 @@ Without any `Schnickschnack` `[ˈʃnɪkˌʃnak]` (meaning: Just all you need, no
 It includes:
 - [Webpack](https://webpack.github.io/)
 - Hot Module Replacement (HRM) by [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader)
-- [MaterializeCSS](http://materializecss.com/) - just in case you need some nice styles
+- [Material Design Lite](https://getmdl.io/) - just in case you need some nice styles
 
 ## Installation
 
@@ -18,10 +18,9 @@ git clone https://github.com/elmoin/elmoin-starter-kit.git {your-project}
 cd {your-project}
 npm i
 elm package install -y
-npm run
 npm start
-visit localhost:3333 to see the site
 ````
+Open [http://localhost:3333](http://localhost:3333) in your browser
 
 If you want to remove all git history just run `rm -rf .git` from your `{your-project}`
 
