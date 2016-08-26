@@ -1,6 +1,6 @@
 {
   "name": "elmoin-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Starter kit for any (Elmoin) Elm project",
   "main": "index.js",
   "scripts": {
