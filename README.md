@@ -17,7 +17,6 @@ It includes:
 git clone https://github.com/elmoin/elmoin-starter-kit.git {your-project}
 cd {your-project}
 npm i
-elm package install -y
 npm start
 ````
 Open [http://localhost:3333](http://localhost:3333) in your browser
