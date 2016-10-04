@@ -1,4 +1,4 @@
-module Main exposing (..)
+module App exposing (..)
 
 import Html exposing (..)
 import Html.App as Html
@@ -59,16 +59,13 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "mdl-grid" ]
-        [ div
-            [ class "mdl-cell mdl-cell--8-col mdl-cell--2-offset content" ]
-            [ h1 [] [ text "Elmoin Starter Kit" ]
-            , img [ class "logo", src "./elmoin-logo.png" ] []
-            , footer []
-                [ h3 [] [ text <| toString model.count ++ "x Moin Moin Elmoin!" ]
-                , a
-                    [ class "mdl-button mdl-js-button mdl-button--raised btn-more", onClick Count ]
-                    [ text "Mooooooooooore Moin!" ]
-                ]
+    div [ class "col-12 center" ]
+        [ h1 [] [ text "Elmoin Starter Kit" ]
+        , img [ class "col-3", src "./elmoin-logo.png" ] []
+        , footer []
+            [ h2 [ class "h2" ] [ text <| toString model.count ++ "x Moin Moin Elmoin!" ]
+            , a
+                [ class "btn btn-primary btn-more h2 p2", onClick Count ]
+                [ text "Mooooooooooore Moin!" ]
             ]
         ]
