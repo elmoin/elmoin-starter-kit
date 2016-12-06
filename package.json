@@ -38,7 +38,7 @@
     "html-webpack-plugin": "^2.24.1",
     "postcss-cssnext": "^2.8.0",
     "postcss-custom-properties": "^5.0.1",
-    "postcss-import": "^8.2.0",
+    "postcss-import": "^9.0.0",
     "postcss-loader": "^1.1.1",
     "postcss-modules-local-by-default": "^1.1.1",
     "precss": "^1.4.0",
