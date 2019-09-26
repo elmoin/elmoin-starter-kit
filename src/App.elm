@@ -1,14 +1,15 @@
 module App exposing (..)
 
+import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
 
-main : Program Never Model Msg
+main : Program () Model Msg
 main =
-    Html.program
-        { init = init
+    Browser.element
+        { init = \_ -> init
         , view = view
         , update = update
         , subscriptions = subscriptions
@@ -58,13 +59,21 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
+    let
+        repoUrl =
+            "https://github.com/elmoin/elmoin-starter-kit"
+    in
     div [ class "col-12 center" ]
-        [ h1 [] [ text "Elmoin Starter Kit" ]
-        , img [ class "col-3", src "./elmoin-logo.png" ] []
+        [ a [ href repoUrl ]
+            [ h1 [] [ text "Elmoin Starter Kit" ]
+            ]
+        , a [ href repoUrl ]
+            [ img [ class "col-3", src "./elmoin-logo.png" ] []
+            ]
         , footer []
-            [ h2 [ class "h2" ] [ text <| toString model.count ++ "x Moin Moin Elmoin!" ]
+            [ h2 [ class "h2" ] [ text <| String.fromInt model.count ++ "x Moin Moin Elmoin!" ]
             , a
                 [ class "btn btn-primary btn-more h2 p2", onClick Count ]
-                [ text "Mooooooooooore Moin!" ]
+                [ text "Have fun!" ]
             ]
         ]

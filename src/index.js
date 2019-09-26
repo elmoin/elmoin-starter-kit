@@ -1,4 +1,8 @@
-require("./index.css");
+'use strict';
 
-var Elm = require('./App');
-var elm = Elm.App.fullscreen();
+import './index.css';
+import { Elm } from './App.elm';
+
+Elm.App.init({
+  node: document.getElementById('root')
+});

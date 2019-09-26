@@ -16,30 +16,50 @@ module.exports = {
 		filename: '[hash].js',
 		publicPath: '/'
 	},
-	resolve: {
-		modulesDirectories: [
-			'node_modules',
-		],
-		extensions: [ '', '.js', '.elm']
-	},
 	module: {
-		loaders: [{
+		rules: [{
 			test: /\.(png|jpg|gif)$/,
-			loader: 'file'
+			use: 'file-loader'
 		},
 		{
 			test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
-			loader: 'url'
+			loader: 'url-loader'
 		},
 		{
 			test: /\.elm$/,
 			exclude: [/elm-stuff/, /node_modules/],
-			loader:  'elm-hot!elm-webpack?verbose=true&warn=true'
-		},
+			use: [
+        { loader: 'elm-hot-webpack-loader'},
+        { loader: 'elm-webpack-loader',
+            options: {
+                cwd: __dirname,
+                debug: false
+            }
+        }
+      ]
+    },
 		{
 			test: /\.css$/,
-		  loader: 'style!css!postcss',
 		  exclude: /node_modules/,
+      use: [
+        'style-loader',
+        'css-loader',
+        { loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: () => [
+              require('postcss-simple-vars'),
+              require('postcss-modules-local-by-default'),
+              require('postcss-import')({
+                addDependencyTo: webpack,
+              }),
+              require('postcss-cssnext')({
+                browsers: ['last 2 versions']
+              })
+            ]
+          }
+        }
+      ]
 		}
 	]},
 	plugins: [
@@ -50,22 +70,11 @@ module.exports = {
 			favicon: `${PATHS.src}/favicon.ico`
 		})
 	],
-	postcss: function () {
-		return [
-			require('postcss-custom-properties'),
-			require('postcss-modules-local-by-default'),
-			require('postcss-import')({
-				addDependencyTo: webpack,
-			}),
-			require('postcss-cssnext')({
-				browsers: ['last 2 versions']
-			})
-		];
-	},
 	devServer: {
 		inline: true,
 		progress: true,
-		port: 3333,
+    port: 3333,
+    stats: 'errors-only',
 		contentBase: PATHS.src
 	}
 }
